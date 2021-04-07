@@ -99,8 +99,7 @@ function formatDataSource(dataSource: any): any {
 
 function requestFundAIP(fundID: string, totalInvest: number, sdate: string, edate: string): Promise<any> {
   let query = `totalInvest=${totalInvest}&sdate=${sdate}&edate=${edate}`;
-  let url = `/api/funds/${fundID}/aip?${query}`;
-  console.log('---- request url:', url)
+  let url = `api/funds/${fundID}/aip?${query}`;
 
   return new Promise((resolve, reject) => {
     fetch(url)
@@ -155,7 +154,6 @@ class IndexPage extends React.Component {
       return
     }
 
-    console.log('--- select', e.key)
     this.requestFund(e.key, sdate, edate);
     let f = fundMap.get(e.key);
     this.setState({ selected: e.key });
@@ -169,7 +167,7 @@ class IndexPage extends React.Component {
   componentDidMount() {
     let { fundList, selected, dataSource } = this.state;
     if (fundList.length === 0) {
-      fetch('/api/funds').then(res => res.json()).then(res1 => {
+      fetch('api/funds').then(res => res.json()).then(res1 => {
         if (res1 && res1.success && res1.data && res1.data.funds) {
           let fundMap = new Map<string, fund>();
           Object.entries(res1.data.funds).forEach(([key, val]) => {
@@ -180,7 +178,6 @@ class IndexPage extends React.Component {
           fundList.sort((a: fund, b: fund) => parseInt(a.id) - parseInt(b.id))
           if (selected == '') {
             selected = fundList[0].id;
-            console.log('--- default key:', fundList[0].id);
           }
           let sdate = fundList[0].sdate;
           this.setState({ sdate, selected, fundList, fundMap });
