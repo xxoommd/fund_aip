@@ -4,7 +4,7 @@ const xml2js = require('xml2js');
 
 const { Fund, FundData } = require('./base/fund');
 
-const favorite = require('./favorite.json');
+const favorite = require('../db/meta/fav.json');
 
 // https://fundf10.eastmoney.com/F10DataApi.aspx?type=lsjz&code=005774&page=1&sdate=1970-01-01&edate=2021-03-22&per=20
 function doRequest(httpOptions) {

@@ -194,7 +194,7 @@ func (f *Fund) calcAIP(aipType AIPType, totalInvest float64, sdate, edate string
 		}
 
 		totalYear := endDate.ExactYearDistance(startDate)
-		fmt.Printf("---------- totalYear:%v \n", totalYear)
+		// fmt.Printf("---------- totalYear:%v \n", totalYear)
 		aip.AnnualRate = math.Pow(aip.AllAssets/aip.InvestAll, 1.0/totalYear) - 1
 
 		return aip
