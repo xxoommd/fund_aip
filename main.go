@@ -6,5 +6,5 @@ import (
 
 func main() {
 	service.LoadFundsDB()
-	service.StartHTTP("0.0.0.0:8080")
+	service.StartHTTP("0.0.0.0:8888")
 }

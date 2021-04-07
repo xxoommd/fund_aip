@@ -1,6 +1,7 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
+  base: '/fundaip',
   nodeModulesTransform: {
     type: 'none',
   },
