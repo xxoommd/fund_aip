@@ -2,6 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const { dateCompare, dateNum } = require('./dateutil');
 
+const DB_BASE_PATH = "../db";
+
 class FundData {
     constructor(params) {
         this.date = params.date;
@@ -20,7 +22,7 @@ class Fund {
     }
 
     dbPath() {
-        return path.resolve('./db/', `${this.id}_${this.name}.json`)
+        return path.resolve(DB_BASE_PATH, `${this.id}_${this.name}.json`)
     }
 
     addData(data) {
