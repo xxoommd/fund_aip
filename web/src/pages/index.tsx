@@ -301,7 +301,7 @@ class IndexPage extends React.Component {
       <div className="site-page-header-ghost-wrapper">
         <PageHeader
           ghost={false}
-          onBack={() => window.history.back()}
+          onBack={() => { location.href = "/" }}
           title="基金定投计(da)算(lian)器"
           subTitle="papapa"
           extra={[
